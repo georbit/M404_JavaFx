@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="600.0" text="Personen Edit" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="600.0" text="Personen Edit" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbw._project_mvn_openjfx.PrimaryController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -27,7 +27,7 @@
             <Label layoutX="25.0" layoutY="273.0" text="Medium:" />
             <ChoiceBox fx:id="medium" layoutX="116.0" layoutY="269.0" prefWidth="150.0" />
             <Button fx:id="verwerfen" layoutX="25.0" layoutY="314.0" mnemonicParsing="false" text="Verwerfen" />
-            <Button fx:id="speichern" layoutX="199.0" layoutY="314.0" mnemonicParsing="false" text="Speichern" />
+            <Button fx:id="speichern" layoutX="199.0" layoutY="314.0" mnemonicParsing="false" onAction="#onButtonSave" text="Speichern" />
             <Button fx:id="tostart" layoutX="25.0" layoutY="348.0" mnemonicParsing="false" text="&lt;&lt;" />
             <Button fx:id="toend" layoutX="233.0" layoutY="348.0" mnemonicParsing="false" text="&gt;&gt;" />
             <Button fx:id="back" layoutX="66.0" layoutY="348.0" mnemonicParsing="false" text="&lt;" />

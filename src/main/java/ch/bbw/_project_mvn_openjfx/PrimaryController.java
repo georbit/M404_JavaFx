@@ -1,23 +1,36 @@
 package ch.bbw._project_mvn_openjfx;
 
-import java.io.IOException;
-import java.util.Arrays;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class PrimaryController {
 
 	@FXML
-	private TextField txtName;
+	private TextField nachname;
 	@FXML
-	private TextField txtVorname;
+	private TextField vorname;
 	@FXML
-	private TextField txtEmail;
+	private TextField email;
+	@FXML
+	private ChoiceBox musikgenre;
+	@FXML
+	private ChoiceBox kuenstler;
+	@FXML
+	private ChoiceBox medium;
+	@FXML
+	private Button verwerfen;
+	@FXML
+	private Button speichern;
+	@FXML
+	private Button tostart;
+	@FXML
+	private Button back;
+	@FXML
+	private Button forward;
+	@FXML
+	private Button toend;
 
 	/**
 	 * Fields
@@ -67,7 +80,7 @@ public class PrimaryController {
 		this.actualCustomer = 0;
 		// mit Arrays
 		this.customerArray = getCustomerArray();
-		txtName.setText(customerArray[actualCustomer].getFirstname());
+		nachname.setText(customerArray[actualCustomer].getFirstname());
 
 		// mit Liste
 //		this.customers = getCustomers();
@@ -78,7 +91,8 @@ public class PrimaryController {
 	@FXML
 	public void onButtonSave() {
 		System.out.println("button klicked");
-		System.out.println("Name: " + txtName.getText());
+		System.out.println("Name: " + vorname.getText());
+		customerArray[customerArray.length+1] = new Customer(vorname.getText(),nachname.getText(),email.getText());
 		// Liste
 //		System.out.println(customers.get(actualCustomer));
 		// Arrays
@@ -96,9 +110,9 @@ public class PrimaryController {
 		// Liste
 //		txtName.setText(customers.get(actualCustomer).getFirstname());
 		// Arrays
-		txtName.setText(customerArray[actualCustomer].getFirstname());
-		txtVorname.setText(customerArray[actualCustomer].getLastname());
-		txtEmail.setText(customerArray[actualCustomer].getEmail());
+		vorname.setText(customerArray[actualCustomer].getFirstname());
+		nachname.setText(customerArray[actualCustomer].getLastname());
+		email.setText(customerArray[actualCustomer].getEmail());
 
 	}
 
@@ -108,7 +122,7 @@ public class PrimaryController {
 		// Liste
 //		txtName.setText(customers.get(actualCustomer).getFirstname());
 		// Array
-		txtName.setText(customerArray[actualCustomer].getFirstname());
+		vorname.setText(customerArray[actualCustomer].getFirstname());
 
 	}
 
