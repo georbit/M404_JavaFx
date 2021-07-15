@@ -1,56 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.application.Application?>
-<?import javafx.scene.Scene?>
-<?import javafx.scene.web.HTMLEditor?>
-<?import javafx.stage.Stage?>
-<?import javafx.application.Application?>
-<?import javafx.scene.Scene?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.stage.Stage?>
-package application;
-<?import javafx.application.Application?>
-<?import javafx.scene.Scene?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Tooltip?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.stage.Stage?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-
-<VBox alignment="CENTER" prefHeight="611.0" prefWidth="697.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbw._project_mvn_openjfx.PrimaryController">
-	<padding>
-		<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-	</padding>
-	<children>
-		<Pane prefHeight="571.0" prefWidth="611.0">
-			<children>
-				<Label layoutX="382.0" layoutY="26.0" prefHeight="18.0" prefWidth="201.0" text="Allgemeine Angaben" />
-				<Label layoutX="382.0" layoutY="175.0" prefHeight="18.0" prefWidth="201.0" text="Spezifische Angaben" />
-				<Label layoutX="280.0" layoutY="71.0" text="Name" />
-				<TextField fx:id="txtName" layoutX="377.0" layoutY="67.0" prefHeight="26.0" prefWidth="201.0" />
-				<Label layoutX="280.0" layoutY="105.0" text="Vorname" />
-				<TextField fx:id="txtVorname" layoutX="377.0" layoutY="101.0" prefHeight="26.0" prefWidth="201.0" />
-				<Label layoutX="280.0" layoutY="144.0" text="Email" />
-				<TextField fx:id="txtEmail" layoutX="377.0" layoutY="140.0" prefHeight="26.0" prefWidth="201.0" />
-				<Button layoutX="497.0" layoutY="443.0" mnemonicParsing="false" onAction="#onButtonSave" prefHeight="32.0" prefWidth="87.0" text="save" />
-				<Button layoutX="353.0" layoutY="443.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="87.0" text="discard" />
-				<Button layoutX="350.0" layoutY="486.0" mnemonicParsing="false" onAction="#onButtonFastBack" text="&lt;&lt;" />
-				<Button layoutX="407.0" layoutY="486.0" mnemonicParsing="false" onAction="#onButtonBack" text="&lt;" />
-				<Button layoutX="495.0" layoutY="489.0" mnemonicParsing="false" onAction="#onButtonForward" text="&gt;" />
-				<Button layoutX="552.0" layoutY="489.0" mnemonicParsing="false" onAction="#onButtonFastForward" text="&gt;&gt;" />
-            <Label layoutX="259.0" layoutY="380.0" text="Hier stehen die Infos des Kunden z.B. welche Brillentypen geeignet sind:" />
-			</children>
-
-		</Pane>
-	</children>
-</VBox>
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="600.0" text="Personen Edit" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbw._project_mvn_openjfx.PrimaryController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="25.0" layoutY="87.0" prefWidth="56.0" text="Vorname:" />
+            <Label layoutX="25.0" layoutY="119.0" text="Email:" />
+            <Label layoutX="25.0" layoutY="56.0" text="Name:" />
+            <TextField fx:id="nachname" layoutX="114.0" layoutY="52.0" />
+            <TextField fx:id="vorname" layoutX="115.0" layoutY="83.0" />
+            <TextField fx:id="email" layoutX="116.0" layoutY="115.0" />
+            <Label layoutX="25.0" layoutY="14.0" text="Allgemeine Angaben:" />
+            <Label layoutX="25.0" layoutY="161.0" text="Spezifische Angaben:" />
+            <Label layoutX="25.0" layoutY="199.0" text="Musikgenre:" />
+            <ChoiceBox fx:id="musikgenre" layoutX="116.0" layoutY="195.0" prefWidth="150.0" />
+            <Label layoutX="25.0" layoutY="235.0" text="Künstler:" />
+            <ChoiceBox fx:id="kuenstler" layoutX="115.0" layoutY="231.0" prefWidth="150.0" />
+            <Label layoutX="25.0" layoutY="273.0" text="Medium:" />
+            <ChoiceBox fx:id="medium" layoutX="116.0" layoutY="269.0" prefWidth="150.0" />
+            <Button fx:id="verwerfen" layoutX="25.0" layoutY="314.0" mnemonicParsing="false" text="Verwerfen" />
+            <Button fx:id="speichern" layoutX="199.0" layoutY="314.0" mnemonicParsing="false" onAction="#onButtonSave" text="Speichern" />
+            <Button fx:id="tostart" layoutX="25.0" layoutY="348.0" mnemonicParsing="false" text="&lt;&lt;" />
+            <Button fx:id="toend" layoutX="233.0" layoutY="348.0" mnemonicParsing="false" text="&gt;&gt;" />
+            <Button fx:id="back" layoutX="66.0" layoutY="348.0" mnemonicParsing="false" text="&lt;" />
+            <Button fx:id="forward" layoutX="200.0" layoutY="348.0" mnemonicParsing="false" onAction="#onButtonForward" text="&gt;" />
+            <ListView fx:id="kundenliste" layoutX="355.0" layoutY="52.0" prefHeight="318.0" prefWidth="200.0" />
+            <Label layoutX="355.0" layoutY="14.0" text="Kunden:" />
+         </children></AnchorPane>
+  </content>
+</TitledPane>

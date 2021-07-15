@@ -31,7 +31,7 @@
             <Button fx:id="tostart" layoutX="25.0" layoutY="348.0" mnemonicParsing="false" text="&lt;&lt;" />
             <Button fx:id="toend" layoutX="233.0" layoutY="348.0" mnemonicParsing="false" text="&gt;&gt;" />
             <Button fx:id="back" layoutX="66.0" layoutY="348.0" mnemonicParsing="false" text="&lt;" />
-            <Button fx:id="forward" layoutX="200.0" layoutY="348.0" mnemonicParsing="false" text="&gt;" />
+            <Button fx:id="forward" layoutX="200.0" layoutY="348.0" mnemonicParsing="false" onAction="#onButtonForward" text="&gt;" />
             <ListView fx:id="kundenliste" layoutX="355.0" layoutY="52.0" prefHeight="318.0" prefWidth="200.0" />
             <Label layoutX="355.0" layoutY="14.0" text="Kunden:" />
          </children></AnchorPane>

@@ -1,51 +1,53 @@
 package ch.bbw._project_mvn_openjfx;
 
 public class Music {
-	public enum Genres{
-		POP,ROCK,METAL
+
+	private String genre;
+
+	private String kuenstler;
+
+	private String medium;
+
+	public Music() {
 	}
 
-	public enum Kuenstler{
-		POP,ROCK,METAL
+	public Music(String genre, String kuenstler, String medium) {
+		this.genre = genre;
+		this.kuenstler = kuenstler;
+		this.medium = medium;
 	}
 
-	public enum Medien{
-		POP,ROCK,METAL
-	}
-
-	private Genres genre;
-
-	private Kuenstler kuenstler;
-
-	private Medien medium;
-
-	public Genres getGenre() {
+	public String getGenre() {
 		return genre;
 	}
 
-	public Music(Genres genre, Kuenstler kuenstler, Medien medium) {
-		this.genre = genre;
-		this.kuenstler = kuenstler;
-		this.medium = medium;
-	}
-
-	public void setGenre(Genres genre) {
+	public void setGenre(String genre) {
 		this.genre = genre;
 	}
 
-	public Kuenstler getKuenstler() {
+	public String getKuenstler() {
 		return kuenstler;
 	}
 
-	public void setKuenstler(Kuenstler kuenstler) {
+	public void setKuenstler(String kuenstler) {
 		this.kuenstler = kuenstler;
 	}
 
-	public Medien getMedium() {
+	public String getMedium() {
 		return medium;
 	}
 
-	public void setMedium(Medien medium) {
+	public void setMedium(String medium) {
 		this.medium = medium;
 	}
+
+	@Override
+	public String toString() {
+		return "Music{" +
+				"genre='" + genre + '\'' +
+				", kuenstler='" + kuenstler + '\'' +
+				", medium='" + medium + '\'' +
+				'}';
+	}
 }
+

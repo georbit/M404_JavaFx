@@ -1,9 +1,9 @@
 package ch.bbw._project_mvn_openjfx;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class PrimaryController {
 
@@ -31,40 +31,26 @@ public class PrimaryController {
 	private Button forward;
 	@FXML
 	private Button toend;
+	@FXML
+	private ListView<Customer> kundenliste;
+
 
 	/**
 	 * Fields
 	 *
 	 */
-	// Customer Array
-	private Customer[] customerArray = new Customer[10];
-
-	// oder Liste
-//	private ObservableList<Customer> customers = FXCollections.observableArrayList();
+	// Customer List
+	private ObservableList<Customer> customerList = FXCollections.observableArrayList();
 
 	private int actualCustomer;
 
-	/**
-	 * some customers
-	 * 
-	 * mit Liste
-	 * 
-	 * @return
-	 */
-//	private ObservableList<Customer> getCustomers() {
-//		ObservableList<Customer> customers = FXCollections.observableArrayList(
-//				new Customer("Giovanni", "Cucuzza", "gc@bbw.ch"), new Customer("Jimmi", "Hendrix", "jh@bbw.ch"),
-//				new Customer("Johnny", "Django", "jd@bbw.ch"));
-//		return customers;
-//
-//	}
 
-	// Beispiel mit Arrays
-	private Customer[] getCustomerArray() {
+	private ObservableList<Customer> getCustomerList() {
 
-		Customer[] customers = new Customer[10];
+		ObservableList<Customer> customers = FXCollections.observableArrayList();
+
 		for (int i = 0; i < 10; i++) {
-			customers[i] = new Customer("Johnny" + i, "Hendrix" + i, "jh@bbw.ch");
+			customers.add(new Customer("Johnny" + i, "Hendrix" + i, "jh@bbw.ch"));
 		}
 		return customers;
 
@@ -79,50 +65,57 @@ public class PrimaryController {
 
 		this.actualCustomer = 0;
 		// mit Arrays
-		this.customerArray = getCustomerArray();
-		nachname.setText(customerArray[actualCustomer].getFirstname());
+		this.customerList = getCustomerList();
+		nachname.setText(customerList.get(actualCustomer).getFirstname());
+		vorname.setText(customerList.get(actualCustomer).getLastname());
+		email.setText(customerList.get(actualCustomer).getEmail());
 
-		// mit Liste
-//		this.customers = getCustomers();
-//		txtName.setText(customers.get(actualCustomer).getFirstname());
+		musikgenre.setItems(FXCollections.observableArrayList("Pop","Rock","Klassik"));
+		kuenstler.setItems(FXCollections.observableArrayList("21 Pilots","Linkin Park","Schubert"));
+		medium.setItems(FXCollections.observableArrayList("CD","Schallplatte","Kassette"));
+
+		kundenliste.setItems(customerList);
 
 	}
 
 	@FXML
 	public void onButtonSave() {
 		System.out.println("button klicked");
+		Music music = new Music();
+		music.setGenre(musikgenre.getValue().toString());
+		music.setKuenstler(kuenstler.getValue().toString());
+		music.setMedium(medium.getValue().toString());
 		System.out.println("Name: " + vorname.getText());
-		customerArray[customerArray.length+1] = new Customer(vorname.getText(),nachname.getText(),email.getText());
-		// Liste
-//		System.out.println(customers.get(actualCustomer));
-		// Arrays
-		System.out.println(customerArray[actualCustomer]);
 
+		customerList.add(new Customer(vorname.getText(),nachname.getText(),email.getText(),music));
+
+		for(Customer customer1 : customerList) {
+			System.out.println(customer1.ToStringDebug());
+		}
 	}
 
 	@FXML
 	public void onButtonForward() {
 		actualCustomer++;
 		// roundrobin
-		if (actualCustomer > customerArray.length - 1) {
+		if (actualCustomer > customerList.size() - 1) {
 			actualCustomer = 0;
 		}
-		// Liste
-//		txtName.setText(customers.get(actualCustomer).getFirstname());
-		// Arrays
-		vorname.setText(customerArray[actualCustomer].getFirstname());
-		nachname.setText(customerArray[actualCustomer].getLastname());
-		email.setText(customerArray[actualCustomer].getEmail());
+
+		vorname.setText(customerList.get(actualCustomer).getFirstname());
+		nachname.setText(customerList.get(actualCustomer).getLastname());
+		email.setText(customerList.get(actualCustomer).getEmail());
+		musikgenre.setValue(customerList.get(actualCustomer).getMusic().getGenre());
 
 	}
 
 	@FXML
 	public void onButtonFastForward() {
-		actualCustomer = (customerArray.length - 1);
+		actualCustomer = (customerList.size() - 1);
 		// Liste
 //		txtName.setText(customers.get(actualCustomer).getFirstname());
 		// Array
-		vorname.setText(customerArray[actualCustomer].getFirstname());
+		vorname.setText(customerList.get(actualCustomer).getFirstname());
 
 	}
 
