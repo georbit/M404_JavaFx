@@ -91,7 +91,7 @@ public class PrimaryController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Ungültige Email Adresse");
             alert.setHeaderText("Ungültige Email Adresse");
-            alert.setContentText("Ihre/n Email Adresse ist nicht gültig. Bitte geben Sie eine gültige Adresse ein!");
+            alert.setContentText("Ihre Email Adresse ist nicht gültig. Bitte geben \n Sie eine gültige Adresse ein!");
 
             alert.showAndWait();
 
@@ -164,12 +164,12 @@ public class PrimaryController {
         setDataOfCustomers();
     }
 
-    public boolean validateMail() {
+    private boolean validateMail() {
         String regex = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
         return email.getText().matches(regex);
     }
 
-    public void setDataOfCustomers() {
+    private void setDataOfCustomers() {
         vorname.setText(customerList.get(actualCustomer).getFirstname());
         nachname.setText(customerList.get(actualCustomer).getLastname());
         email.setText(customerList.get(actualCustomer).getEmail());
